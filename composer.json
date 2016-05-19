@@ -1,0 +1,14 @@
+{
+    "name": "pleio/news",
+    "description": "Side-wide news",
+    "type": "elgg-plugin",
+    "keywords": ["elgg", "plugin", "news"],
+    "license": "GPL-2.0",
+    "support": {
+        "source": "https://github.com/Pleio/news",
+        "issues": "https://github.com/Pleio/news/issues"
+    },
+    "require": {
+        "composer/installers": "^1.0.8"
+    }
+}
