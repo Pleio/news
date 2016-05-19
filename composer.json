@@ -1,6 +1,6 @@
 {
     "name": "pleio/news",
-    "description": "Side-wide news",
+    "description": "Site-wide news",
     "type": "elgg-plugin",
     "keywords": ["elgg", "plugin", "news"],
     "license": "GPL-2.0",
