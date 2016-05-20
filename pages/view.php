@@ -28,7 +28,7 @@ $body = elgg_view_layout('content', array(
 ));
 
 echo elgg_view_page($title, $body, "default", array(
-    'leader' => elgg_view('news/leader', array(
+    'leader' => elgg_view('news/header', array(
         'entity' => $entity
     ))
 ));
