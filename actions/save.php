@@ -3,7 +3,7 @@
 $guid = get_input('guid');
 $title = get_input('title');
 $description = get_input('description');
-$tags = get_input('tags');
+$tags = string_to_tag_array(get_input('tags'));
 
 $container_guid = (int) get_input('container_guid');
 $access_id = (int) get_input('access_id');
@@ -48,5 +48,5 @@ if (get_resized_image_from_uploaded_file("header", 1280, 330)) {
 }
 
 elgg_clear_sticky_form('news');
-system_message('news:added');
+system_message(elgg_echo('news:added'));
 forward('/news');

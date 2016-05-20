@@ -1,6 +1,7 @@
 <?php
 $dutch = array(
     'news' => 'Nieuws',
+    'item:object:news' => 'Nieuwsbericht',
     'news:add' => 'Voeg nieuwsbericht toe',
     'news:edit' => 'Wijzig nieuwsbericht',
     'news:title' => 'Titel',

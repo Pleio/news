@@ -13,5 +13,5 @@ if (!$news || !$news instanceof ElggNews || !$news->canEdit()) {
 
 $news->delete();
 
-system_message('news:deleted');
+system_message(elgg_echo('news:deleted'));
 forward('/news');

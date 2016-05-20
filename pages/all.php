@@ -17,12 +17,12 @@ $options = array(
 
 $title = elgg_echo('news');
 
-$content = elgg_view('news/all_extend') . elgg_list_entities($options);
-
 $body = elgg_view_layout('content', array(
-    'title' => $title,
+    'title' => '',
     'filter' => '',
-    'content' => $content
+    'content' => elgg_view('news/pages/all', array(
+        'entities' => elgg_list_entities($options)
+    ))
 ));
 
 echo elgg_view_page($title, $body);

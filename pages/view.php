@@ -20,7 +20,7 @@ if ($entity->canEdit()) {
 
 $title = $entity->title;
 $body = elgg_view_layout('content', array(
-    'title' => $entity->title,
+    'title' => '',
     'filter' => '',
     'content' => elgg_view_entity($entity, array(
         'full_view' => true

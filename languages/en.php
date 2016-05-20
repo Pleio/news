@@ -1,6 +1,7 @@
 <?php
 $english = array(
     'news' => 'News',
+    'item:object:news' => 'News',
     'news:add' => 'Add news item',
     'news:edit' => 'Edit news item',
     'news:title' => 'Title',
