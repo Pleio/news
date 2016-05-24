@@ -43,7 +43,7 @@ function news_container_permissions_check($hook, $type, $return_value, $params) 
     $subtype = elgg_extract('subtype', $params);
 
     if (!$subtype == "news") {
-        return;
+        return $return_value;
     }
 
     if ($user && $user->isAdmin()) {
