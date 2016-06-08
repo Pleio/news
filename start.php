@@ -42,7 +42,7 @@ function news_container_permissions_check($hook, $type, $return_value, $params) 
     $container = elgg_extract('container', $params);
     $subtype = elgg_extract('subtype', $params);
 
-    if (!$subtype == "news") {
+    if ($subtype !== "news") {
         return $return_value;
     }
 
