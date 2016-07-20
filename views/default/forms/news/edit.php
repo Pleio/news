@@ -52,11 +52,40 @@ foreach ($user->getGroups(array(), 50) as $group) {
 </div><br />
 
 <div>
-    <label for="header"><?php echo elgg_echo("news:header"); ?></label><br />
+    <label for="top_photo"><?php echo elgg_echo("news:top_photo"); ?> (1280 x 330px)</label><br />
     <div>
-    <?php echo elgg_view('input/file', array(
-        'name' => 'header'
-    )); ?>
+        <?php if ($entity->topPhotoTime): ?>
+            <b><?php echo elgg_echo("news:photo_added_on"); ?> <?php echo date("d-m-Y H:i", $entity->topPhotoTime); ?></b>
+            <?php echo elgg_view('output/url', array(
+                'href' => '#',
+                'class' => 'news-icon-remove',
+                'text' => elgg_view_icon("remove"),
+                'data-fieldname' => 'top_photo'
+            )); ?>
+        <?php else: ?>
+            <?php echo elgg_view('input/file', array(
+                'name' => 'top_photo'
+            )); ?>
+        <?php endif; ?>
+    </div>
+</div><br />
+
+<div>
+    <label for="featured_photo"><?php echo elgg_echo("news:featured_photo"); ?> (649 x 365px)</label><br />
+    <div>
+        <?php if ($entity->featuredPhotoTime): ?>
+            <b><?php echo elgg_echo("news:photo_added_on"); ?> <?php echo date("d-m-Y H:i", $entity->featuredPhotoTime); ?></b>
+            <?php echo elgg_view('output/url', array(
+                'href' => '#',
+                'class' => 'news-icon-remove',
+                'text' => elgg_view_icon("remove"),
+                'data-fieldname' => 'featured_photo'
+            )); ?>
+        <?php else: ?>
+            <?php echo elgg_view('input/file', array(
+                'name' => 'featured_photo'
+            )); ?>
+        <?php endif; ?>
     </div>
 </div><br />
 

@@ -2,6 +2,11 @@
 
 $guid = (int) get_input("guid");
 $time = (int) get_input("time");
+$type = get_input("type");
+
+if (!in_array($type, array("top_photo", "featured_photo"))) {
+    $type = "top_photo";
+}
 
 if ($guid) {
     $entity = get_entity($guid);
@@ -24,7 +29,7 @@ if (isset($_SERVER["HTTP_IF_NONE_MATCH"])) {
 
 $fh = new ElggFile();
 $fh->owner_guid = $guid;
-$fh->setFilename("header.jpg");
+$fh->setFilename($type . ".jpg");
 
 $filecontents = $fh->grabFile();
 

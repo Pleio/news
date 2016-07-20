@@ -9,6 +9,8 @@ function news_init() {
     elgg_register_action('news/delete', dirname(__FILE__) . "/actions/delete.php");
 
     elgg_register_plugin_hook_handler('container_permissions_check', 'all', 'news_container_permissions_check');
+
+    elgg_extend_view("js/elgg", "js/news/site");
 }
 
 function news_page_handler($segments) {
@@ -24,9 +26,9 @@ function news_page_handler($segments) {
             set_input('guid', $segments[1]);
             include(dirname(__FILE__) . "/pages/view.php");
             break;
-        case "header":
+        case "photo":
             set_input('guid', $segments[1]);
-            include(dirname(__FILE__) . "/pages/header.php");
+            include(dirname(__FILE__) . "/pages/photo.php");
             break;
         case "all":
         default:

@@ -7,10 +7,13 @@ $english = array(
     'news:title' => 'Title',
     'news:description' => 'Inhoud',
     'news:container' => 'Group',
-    'news:header' => 'Header',
+    'news:top_photo' => 'Top photo',
+    'news:featured_photo' => 'Featured photo',
     'news:could_not_find' => 'Could not find the requested news item',
-    'news:added' => 'News item succesfully added',
-    'news:deleted' => 'News item succesfully removed'
+    'news:added' => 'News item added',
+    'news:edited' => 'News item edited',
+    'news:deleted' => 'News item removed',
+    'news:photo_added_on' => 'Photo added on'
 );
 
 add_translation("en", $english);

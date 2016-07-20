@@ -11,9 +11,15 @@ class ElggNews extends ElggObject {
         return '/news/view/' . $this->guid . '/' . elgg_get_friendly_title($this->title) . '/';
     }
 
-    public function getHeaderURL() {
-        if ($this->headertime) {
-            return '/news/header/' . $this->guid . '.jpg?time=' . $this->headertime;
+    public function getTopPhotoURL() {
+        if ($this->topPhotoTime) {
+            return '/news/photo/' . $this->guid . '.jpg?type=top_photo&time=' . $this->topPhotoTime;
+        }
+    }
+
+    public function getFeaturedPhotoURL() {
+        if ($this->featuredPhotoTime) {
+            return '/news/photo/' . $this->guid . '.jpg?type=featured_photo&time=' . $this->featuredPhotoTime;
         }
     }
 }

@@ -2,6 +2,6 @@
 $entity = $vars['entity'];
 ?>
 
-<?php if ($entity->headertime): ?>
-    <div style="background-image: url('<?php echo $entity->getHeaderURL(); ?>');" class="rhs-news-item__lead"></div>
+<?php if ($entity->topPhotoTime): ?>
+    <div style="background-image: url('<?php echo $entity->getTopPhotoURL(); ?>');" class="rhs-news-item__lead"></div>
 <?php endif ?>

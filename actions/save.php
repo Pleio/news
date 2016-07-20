@@ -8,6 +8,9 @@ $tags = string_to_tag_array(get_input('tags'));
 $container_guid = (int) get_input('container_guid');
 $access_id = (int) get_input('access_id');
 
+$top_photo = get_input("top_photo");
+$featured_photo = get_input("featured_photo");
+
 elgg_make_sticky_form('news');
 
 if ($guid) {
@@ -33,20 +36,58 @@ $news->access_id = $access_id;
 $news->tags = $tags;
 $news->save();
 
-if (get_resized_image_from_uploaded_file("header", 1280, 330)) {
+
+if ($guid && $top_photo == "remove") {
     $fh = new ElggFile();
-    $fh->owner_guid = $news->getGUID();
-    $fh->setFilename("header.jpg");
+    $fh->owner_guid = $news->guid;
+    $fh->setFilename("top_photo.jpg");
+    $fh->delete();
+
+    $news->topPhotoTime = null;
+    $news->save();
+} elseif (get_resized_image_from_uploaded_file("top_photo", 1280, 330)) {
+    $fh = new ElggFile();
+    $fh->owner_guid = $news->guid;
+    $fh->setFilename("top_photo.jpg");
     $fh->open("write");
 
-    $contents = get_resized_image_from_uploaded_file("header", 1280, 330);
+    $contents = get_resized_image_from_uploaded_file("top_photo", 1280, 330);
     $fh->write($contents);
     $fh->close();
 
-    $news->headertime = time();
+    $news->topPhotoTime = time();
     $news->save();
 }
 
+if ($guid && $featured_photo == "remove") {
+    $fh = new ElggFile();
+    $fh->owner_guid = $news->guid;
+    $fh->setFilename("featured_photo.jpg");
+    $fh->delete();
+
+    $news->featuredPhotoTime = null;
+    $news->save();
+} elseif (get_resized_image_from_uploaded_file("featured_photo", 1280, 330)) {
+    $fh = new ElggFile();
+    $fh->owner_guid = $news->guid;
+    $fh->setFilename("featured_photo.jpg");
+    $fh->open("write");
+
+    $contents = get_resized_image_from_uploaded_file("featured_photo", 1280, 330);
+    $fh->write($contents);
+    $fh->close();
+
+    $news->featuredPhotoTime = time();
+    $news->save();
+}
+
+
 elgg_clear_sticky_form('news');
-system_message(elgg_echo('news:added'));
-forward('/news');
+
+if ($guid) {
+    system_message(elgg_echo('news:edited'));
+    forward($news->getURL());
+} else {
+    system_message(elgg_echo('news:added'));
+    forward('/news');
+}
