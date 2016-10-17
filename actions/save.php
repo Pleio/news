@@ -67,13 +67,13 @@ if ($guid && $featured_photo == "remove") {
 
     $news->featuredPhotoTime = null;
     $news->save();
-} elseif (get_resized_image_from_uploaded_file("featured_photo", 1280, 330)) {
+} elseif (get_resized_image_from_uploaded_file("featured_photo", 649, 365)) {
     $fh = new ElggFile();
     $fh->owner_guid = $news->guid;
     $fh->setFilename("featured_photo.jpg");
     $fh->open("write");
 
-    $contents = get_resized_image_from_uploaded_file("featured_photo", 1280, 330);
+    $contents = get_resized_image_from_uploaded_file("featured_photo", 649, 365);
     $fh->write($contents);
     $fh->close();
 
