@@ -71,7 +71,7 @@ foreach ($user->getGroups(array(), 50) as $group) {
 </div><br />
 
 <div>
-    <label for="featured_photo"><?php echo elgg_echo("news:featured_photo"); ?> (649 x 365px)</label><br />
+    <label for="featured_photo"><?php echo elgg_echo("news:featured_photo"); ?></label><br />
     <div>
         <?php if ($entity->featuredPhotoTime): ?>
             <b><?php echo elgg_echo("news:photo_added_on"); ?> <?php echo date("d-m-Y H:i", $entity->featuredPhotoTime); ?></b>
