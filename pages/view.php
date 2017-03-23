@@ -10,7 +10,7 @@ elgg_push_context('news');
 elgg_set_page_owner_guid($entity->guid);
 
 if (!$entity) {
-    system_error(elgg_echo('news:could_not_find'));
+    register_error(elgg_echo('news:could_not_find'));
     forward(REFERER);
 }
 
